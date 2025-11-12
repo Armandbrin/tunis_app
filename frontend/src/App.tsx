@@ -5,12 +5,9 @@ import { Main } from "./componants/Main";
 import { Footer } from "./componants/Footer";
 
 function App() {
-  
-
   return (
     <>
       <Header />
-
       <Main />
       <Footer />
     </>
