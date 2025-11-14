@@ -1,10 +1,10 @@
-import type { CoursType } from "./Main";
+import type { CoursType } from "../componants/Types";
 
 interface CoursProps {
   cours: CoursType;
 }
 
-export function Cours({ cours }: CoursProps) {
+export function Cards({ cours }: CoursProps) {
   return (
     <>
       <a
