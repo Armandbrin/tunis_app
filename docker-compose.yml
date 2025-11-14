@@ -2,15 +2,33 @@ version: "3.9"
 
 services:
   frontend:
-    build: ./front
+    build: ./frontend
     container_name: react_front
     ports:
-      - "3000:80"
+      - "5173:80"
     depends_on:
       - backend
 
   backend:
-    build: ./back
+    build: ./backend/cda-tunis-formation-server
     container_name: spring_back
     ports:
       - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/tunis_formation_db
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: Abrrmiannd1912.
+
+  db:
+    image: postgres:18
+    container_name: postgres_db
+    environment:
+      POSTGRES_DB: tunis_formation_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Abrrmiannd1912.
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./backend/cda-tunis-formation-server/src/main/resources/postgres/:/docker-entrypoint-initdb.d/

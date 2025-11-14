@@ -15,7 +15,7 @@ export interface CoursType {
 export function Main() {
   const [cours, setCours] = useState<CoursType[]>([]);
   useEffect(() => {
-    fetch("http://localhost:8081/lessons")
+    fetch("http://localhost:8080/lessons")
       .then((response) => response.json())
       .then((response) => {
         setCours(response);
@@ -42,7 +42,7 @@ export function Main() {
       >
         Cours :
       </a>
-      <section className="flex justify-around p-5">
+      <section className="flex gap-20 p-10 overflow-x-scroll">
         {cours.map((cours) => (
           <Cours key={cours.id} cours={cours} />
         ))}
