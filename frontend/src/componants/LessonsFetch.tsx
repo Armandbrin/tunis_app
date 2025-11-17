@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import type { CoursType } from "../componants/Types";
+
 export function LessonsFetch() {
   const [cours, setCours] = useState<CoursType[]>([]);
   useEffect(() => {
